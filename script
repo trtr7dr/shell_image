@@ -18,9 +18,9 @@ start() {
       local width=`identify -format "%w" "$1"`
       if [[ $width -gt 2000 ]]
         then
-          convert $fullname -resize 2000 -quality 75 $fullname
+          convert "$fullname" -resize 2000 -quality 75 -strip "$fullname"
       else
-          convert $fullname -quality 75 $fullname
+          convert "$fullname" -quality 75 -strip "$fullname"
       fi
   fi
 }
